@@ -7,8 +7,8 @@
             thumbnail_bg_color:"#ddd",
             thumbnail_border:"5px solid #fff",
             thumbnail_shadow:"0 0 4px rgba(0, 0, 0, 0.5)",
-            label_text:"Select an Image File",
-            warning_message:"Not an image file.",
+            label_text:"Sélectionnez un fichier image",
+            warning_message:"Ce fichier n'est pas un fichier image.",
             warning_text_color:"#f00"
         },options);
 
@@ -45,6 +45,8 @@
                 var labelText = settings.label_text;
             }
 
+            var defaultImage = $(this).data('image');
+
             var newFileInput = $('<div>')
                 .addClass('image-preview-wrapper')
                 .css({
@@ -72,7 +74,8 @@
                         "background-position":"50%, 50%",
                         "display":"inline-block",
                         "float":"left",
-                        "margin-right":"1em"
+                        "margin-right":"1em",
+		                    "background-image": defaultImage ? 'url('+defaultImage+')' : false
                     })
                 )
                 .append($('<label>')
